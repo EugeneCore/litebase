@@ -140,18 +140,25 @@ db.delete('users', {login: 'newton'});
 db.delete('users');
 ```
 
-Specific document can be easily deleted by its unique _id.
+Specific document can be easily deleted by its unique _id:
 
 ```js
 db.get('users', {login: 'newton'}, function(found_user, collection)
 {
 	/*
 		login: 'newton',
-		password: 'qwerty',
+		password: '4815162342',
 		_id: 1657021467
 	*/
 
 	db.delete('users', found_user, function(updated_collection)
+	{
+
+	});
+
+	// Or
+
+	db.delete('users', {_id: found_user._id}, function(updated_collection)
 	{
 
 	});
