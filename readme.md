@@ -8,14 +8,15 @@ Probably not scalable in the current state.
 
 Litebase works with collections of documents.
 At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
-All collectons will be contained inside the storage folder.
-Every collection stored in a separate file and contains an array of document objects.
+All collections will be contained inside the storage folder.
+Each collection will be stored in a separate file and contain an array of document objects.
 
 For example, a possible collection with name "users" will be stored by:
 
 ```
 project
 └── litebase
+	└── index.js
     └── storage
         └── users
 ```
@@ -31,9 +32,7 @@ And will contain:
 	{
 		"login": "brattain",
 		"password": "02101902"
-	},
-
-	...
+	}
 ]
 ```
 
