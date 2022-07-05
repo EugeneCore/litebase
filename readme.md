@@ -16,7 +16,7 @@ A storage folder will be created next to Litebase's index.js.
 
 ### Get
 
-Get method will find one document in a specific collection by a query. It will return a document object or undefined result:
+.get method will find one document in a specific collection by a query. It will return a document object or undefined result:
 
 ```js
 db.get('users', {login: 'newton'}, function(document)
@@ -25,7 +25,7 @@ db.get('users', {login: 'newton'}, function(document)
 });
 ```
 
-Gets method will find all document in a specific collection by a query. It will return an array of document objects:
+.gets method will find all documents in a specific collection by a query. It will return an array of document objects:
 
 ```js
 db.gets('users', {banned: true}, function(documents)
@@ -49,8 +49,6 @@ db.gets('users', function(collection)
 
 });
 ```
-
-### Query operators
 
 Simple query operators (!=, >, <, >=, <=) can be used:
 
