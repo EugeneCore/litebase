@@ -195,6 +195,7 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 ## Files
 
 .files methods give a direct access to any file in the storage folder.
+Can be used when a project require to work with a database outside the collection/document scheme.
 
 ### Get
 
