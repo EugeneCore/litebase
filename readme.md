@@ -11,7 +11,7 @@ At the moment of the first document saving, a storage folder will be created nex
 All collections will be contained inside the storage folder.
 Each collection will be stored in a separate file and contain an array of document objects.
 
-For example, a possible collection with name "users" will be stored by:
+For example, a possible collection "users" would be stored by:
 
 ```
 project
@@ -21,7 +21,7 @@ project
         └── users
 ```
 
-And will contain:
+And would contain:
 ```json
 [
 	{
