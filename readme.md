@@ -140,4 +140,22 @@ db.delete('users', {login: 'newton'});
 db.delete('users');
 ```
 
+Specific document can be easily deleted by its unique _id.
+
+```js
+db.get('users', {login: 'newton'}, function(found_user, collection)
+{
+	/*
+		login: 'newton',
+		password: 'qwerty',
+		_id: 1657021467
+	*/
+
+	db.delete('users', found_user, function(updated_collection)
+	{
+
+	});
+});
+```
+
 ### File access
