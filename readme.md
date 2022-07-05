@@ -7,14 +7,41 @@ Probably not scalable in the current state.
 ## Structure
 
 Litebase works with collections of documents.
+At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
+All collectons will be contained inside the storage folder.
+Every collection stored in a separate file and contains an array of document objects.
+
+For example, a possible collection with name "users" will be stored by:
+
+```
+project
+└── litebase
+	└── storage
+		└── users
+```
+
+And will contain:
+```json
+[
+	{
+		"login": "newton",
+		"password": "qwerty"
+	},
+
+	{
+		"login": "brattain",
+		"password": "02101902"
+	},
+
+	...
+]
+```
 
 ## How to use
 
 ```js
 let db = require('./litebase');
 ```
-
-At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
 
 ## Methods
 
