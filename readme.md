@@ -70,7 +70,7 @@ let user =
 	password: 'qwerty'
 };
 
-db.save('users', user, function(created_document, collection)
+db.save('users', user, function(created_document, updated_collection)
 {
 	/*
 		login: 'newton',
@@ -93,7 +93,7 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 
 	found_user.password = '4815162342';
 
-	db.save('users', found_user, function(updated_document, collection)
+	db.save('users', found_user, function(updated_document, updated_collection)
 	{
 
 	});
@@ -107,5 +107,37 @@ db.save('users', user);
 ```
 
 ### Delete
+
+.delete method will delete all documents found by query:
+
+```js
+db.delete('users', {login: 'newton'}, function(updated_collection)
+{
+
+});
+```
+
+.delete method will delete entire collection if no query provided:
+
+```js
+db.delete('users', function(empty_collection)
+{
+
+});
+
+// Or
+
+db.delete('users', {}, function(empty_collection)
+{
+
+});
+```
+
+Both methods can be used with no callback:
+
+```js
+db.delete('users', {login: 'newton'});
+db.delete('users');
+```
 
 ### File access
