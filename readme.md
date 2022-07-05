@@ -2,7 +2,7 @@
 
 A simple document oriented database for Node.js.
 It uses a standart fs module to interact with files.
-Probably not scalable in the current state.
+Can be used in small projects and not scalable in the current state.
 
 ## Structure
 
