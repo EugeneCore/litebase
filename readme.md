@@ -53,7 +53,10 @@ db.gets('users', function(collection)
 Simple query operators (!=, >, <, >=, <=) can be used:
 
 ```js
-db.get('profiles', {profile_privacy: {'!=': 'private'}, profile_views: {'>=': 1000}}, callback);
+db.gets('profiles', {profile_privacy: {'!=': 'private'}, profile_views: {'>=': 1000}}, function(documents)
+{
+
+}););
 ```
 
 ### Save
