@@ -106,7 +106,7 @@ database.get_collection = function(collection_name, callback)
 {
 	database.open_file(collection_name, function(collection)
 	{
-		callback(collection ? JSON.parse(collection) || []);
+		callback(collection ? JSON.parse(collection) : []);
 	});
 }
 
