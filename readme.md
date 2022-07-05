@@ -56,7 +56,7 @@ Simple query operators (!=, >, <, >=, <=) can be used:
 db.gets('profiles', {profile_privacy: {'!=': 'private'}, profile_views: {'>=': 1000}}, function(documents)
 {
 
-}););
+});
 ```
 
 ### Save
