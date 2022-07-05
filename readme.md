@@ -8,8 +8,9 @@ Probably not scalable in the current state.
 
 Litebase works with collections of documents.
 At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
-All collections will be contained inside the storage folder.
+All collections will be stored inside the storage folder.
 Each collection will be stored in a separate file and contain an array of document objects.
+Every document will have an _id, unique within the one collection.
 
 For example, a possible collection "users" would be stored by:
 
