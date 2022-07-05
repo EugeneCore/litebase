@@ -440,9 +440,9 @@ exports.delete = function(collection_name, query, callback)
 
 exports.files = {};
 
-// .files.open(path, callback) - Open file. Return file
+// .files.get(path, callback) - Open file. Return file
 
-exports.files.open = function(path, callback)
+exports.files.get = function(path, callback)
 {
 	if (typeof path != 'string' || path.length == 0)
 	{
@@ -454,7 +454,7 @@ exports.files.open = function(path, callback)
 	}
 	else
 	{
-		database.open_file(path, callback);
+		database.open_file(path, safe_callback(callback));
 	}
 }
 

@@ -165,12 +165,12 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 
 .files methods give a direct access to any file in the storage folder.
 
-### Open
+### Get
 
-.files.open will open a file by path and return its content as a string:
+.files.get will open a file by path and return its content as a string:
 
 ```js
-db.files.open('users', function(file_content)
+db.files.get('users', function(file_content)
 {
 
 });
