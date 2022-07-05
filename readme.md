@@ -1,7 +1,7 @@
 # Litebase
 
 A simple document oriented database for Node.js.
-It uses Node.js fs library to interact with files.
+It uses standart fs module to interact with files.
 Probably not scalable in current state.
 
 ## How to use
@@ -10,12 +10,56 @@ Probably not scalable in current state.
 let db = require('./litebase');
 ```
 
+A storage folder will be created next to Litebase's index.js.
+
 ## Methods
 
-### Save method
+### Get
 
-### Find method
+Get method will find one document in a specific collection by a query. It will return a document object or undefined result.
 
-### Delete method
+```js
+db.get('users', {login: 'newton'}, function(document)
+{
 
-### Direct file access
+});
+```
+
+Gets method will find all document in a specific collection by a query. It will return an array of document objects.
+
+```js
+db.gets('users', {banned: true}, function(documents)
+{
+
+});
+```
+
+If no query provided, the previous methods will return a whole collection.
+
+```js
+db.get('users', function(collection)
+{
+
+});
+
+// Or
+
+db.gets('users', function(collection)
+{
+
+});
+```
+
+### Query operators
+
+Simple query operators (!=, >, <, >=, <=) can be used:
+
+```js
+db.get('profiles', {profile_privacy: {'!=': 'private'}, profile_views: {'>=': 1000}}, callback);
+```
+
+### Save
+
+### Delete
+
+### File access
