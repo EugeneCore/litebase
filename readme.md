@@ -6,11 +6,13 @@ Probably not scalable in the current state.
 
 ## How to use
 
+1. Create litebase folder somewhere in your project.
+2. Put litebase index.js in the created folder.
+3. Declare:
 ```js
 let db = require('./litebase');
 ```
-
-Thats all you need. A storage folder will be created next to Litebase's index.js on the first saved document.
+4. Thats all you need. A storage folder will be created next to litebase index.js.
 
 ## Methods
 
