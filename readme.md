@@ -27,11 +27,13 @@ And would contain:
 	{
 		"login": "newton",
 		"password": "qwerty"
+		"_id": 1656959560073,
 	},
 
 	{
 		"login": "brattain",
-		"password": "02101902"
+		"password": "02101902",
+		"_id": 1657045931923,
 	}
 ]
 ```
@@ -105,7 +107,7 @@ db.save('users', user, function(created_document, updated_collection)
 	/*
 		login: 'newton',
 		password: 'qwerty',
-		_id: 1657021467
+		_id: 1656959560073
 	*/
 });
 ```
@@ -118,7 +120,7 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 	/*
 		login: 'newton',
 		password: 'qwerty',
-		_id: 1657021467
+		_id: 1656959560073
 	*/
 
 	found_user.password = '4815162342';
@@ -178,7 +180,7 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 	/*
 		login: 'newton',
 		password: '4815162342',
-		_id: 1657021467
+		_id: 1656959560073
 	*/
 
 	db.delete('users', found_user);
