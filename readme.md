@@ -161,4 +161,47 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 });
 ```
 
-### File access
+## Files
+
+.files methods give a direct access to any file in the storage folder.
+
+### Open
+
+.files.open will open a file by path and return its content as a string:
+
+```js
+db.files.open('users', function(file_content)
+{
+
+});
+```
+
+### Save
+
+.files.save will save a file:
+
+```js
+db.files.save('users', content, function(file_content)
+{
+
+});
+
+// Or
+
+db.files.save('users', content);
+```
+
+### Delete
+
+.files.delete will delete a file by path:
+
+```js
+db.files.delete('users', function()
+{
+
+});
+
+// Or
+
+db.files.delete('users');
+```
