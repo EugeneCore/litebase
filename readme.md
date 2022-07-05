@@ -16,7 +16,7 @@ For example, a possible collection with name "users" will be stored by:
 ```
 project
 └── litebase
-	└── index.js
+    └── index.js
     └── storage
         └── users
 ```
