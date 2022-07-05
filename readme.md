@@ -10,7 +10,7 @@ Probably not scalable in the current state.
 let db = require('./litebase');
 ```
 
-A storage folder will be created next to Litebase's index.js.
+Thats all you need. A storage folder will be created next to Litebase's index.js on the first saved document.
 
 ## Methods
 
@@ -151,17 +151,11 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 		_id: 1657021467
 	*/
 
-	db.delete('users', found_user, function(updated_collection)
-	{
-
-	});
+	db.delete('users', found_user);
 
 	// Or
 
-	db.delete('users', {_id: found_user._id}, function(updated_collection)
-	{
-
-	});
+	db.delete('users', {_id: found_user._id});
 });
 ```
 
