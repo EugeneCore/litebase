@@ -180,7 +180,7 @@ db.files.get('users', function(file_content)
 
 ### Save
 
-.files.save will save a file:
+.files.save will create a new file or update an existing one:
 
 ```js
 db.files.save('users', content, function(file_content)
