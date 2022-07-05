@@ -4,15 +4,17 @@ A simple document oriented database for Node.js.
 It uses a standart fs module to interact with files.
 Probably not scalable in the current state.
 
+## Structure
+
+Litebase works with collections of documents.
+
 ## How to use
 
-1. Create litebase folder somewhere in your project.
-2. Put litebase index.js in the created folder.
-3. Declare:
 ```js
 let db = require('./litebase');
 ```
-4. Thats all you need. A storage folder will be created next to litebase index.js.
+
+At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
 
 ## Methods
 
@@ -27,7 +29,7 @@ db.get('users', {login: 'newton'}, function(found_document, collection)
 });
 ```
 
-.gets method will find all documents in a specific collection by a query. It will return an array of document objects and a collection:
+.gets method will find all documents in a specific collection by a query. It will return an array of documents and a collection:
 
 ```js
 db.gets('users', {banned: true}, function(found_documents, collection)
