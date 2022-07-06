@@ -2,17 +2,16 @@
 
 A simple document oriented database for Node.js.
 It uses a standart fs module to interact with files.
-Can be used in small projects and not scalable in the current state.
 
 ## Structure
 
 Litebase works with collections of documents.
 At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
 All collections will be stored inside the storage folder.
-Each collection will be stored in a separate file and contain an array of document objects.
+Each collection will be stored in one separate file and contain an array of documents.
 Every document will have an _id, unique within the one collection.
 
-For example, a possible collection "users" would be stored by:
+For example, a possible collection "users" would be stored here:
 
 ```
 project
@@ -39,6 +38,8 @@ And would contain:
 ]
 ```
 
+Litebase doesn't have indexation system and collection size control, so it's not scalable in the current state.
+
 ## How to use
 
 ```js
@@ -49,7 +50,7 @@ let db = require('./litebase');
 
 ### Get
 
-.get method will find one document in a specific collection by a query. It will return a document object or undefined result and a collection:
+.get method will find one document in a specific collection by a query. It will return a document (or undefined result) and a collection:
 
 ```js
 db.get('users', {login: 'newton'}, function(found_document, collection)
@@ -67,7 +68,7 @@ db.gets('users', {banned: true}, function(found_documents, collection)
 });
 ```
 
-If no query provided, the previous methods will return a whole collection:
+If no query provided, the previous methods will return just a collection:
 
 ```js
 db.get('users', function(collection)
@@ -94,7 +95,7 @@ db.gets('profiles', {privacy: {'!=': 'private'}, views: {'>=': 1000}}, function(
 
 ### Save
 
-.save method will create a new document with a unique _id:
+.save method will create a new document with an unique _id:
 
 ```js
 let user = 
@@ -113,10 +114,10 @@ db.save('users', user, function(created_document, updated_collection)
 });
 ```
 
-.save method will update existing document if _id provided:
+.save method will update an existing document if _id provided:
 
 ```js
-db.get('users', {login: 'newton'}, function(found_user, collection)
+db.get('users', {login: 'newton'}, function(found_document, collection)
 {
 	/*
 		login: 'newton',
@@ -124,9 +125,9 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 		_id: 1656959560073
 	*/
 
-	found_user.password = '4815162342';
+	found_document.password = '4815162342';
 
-	db.save('users', found_user, function(updated_document, updated_collection)
+	db.save('users', found_document, function(updated_document, updated_collection)
 	{
 
 	});
@@ -166,7 +167,7 @@ db.delete('users', {}, function(empty_collection)
 });
 ```
 
-Both methods can be used with no callback:
+.delete method can be used with no callback:
 
 ```js
 db.delete('users', {login: 'newton'});
@@ -176,7 +177,7 @@ db.delete('users');
 Specific document can be easily deleted by its unique _id:
 
 ```js
-db.get('users', {login: 'newton'}, function(found_user, collection)
+db.get('users', {login: 'newton'}, function(found_document, collection)
 {
 	/*
 		login: 'newton',
@@ -184,11 +185,11 @@ db.get('users', {login: 'newton'}, function(found_user, collection)
 		_id: 1656959560073
 	*/
 
-	db.delete('users', found_user);
+	db.delete('users', found_document);
 
 	// Or
 
-	db.delete('users', {_id: found_user._id});
+	db.delete('users', {_id: found_document._id});
 });
 ```
 
@@ -199,7 +200,7 @@ Can be used when a project require to work with a database outside the collectio
 
 ### Get
 
-.files.get will open a file by path and return its content as a string:
+.files.get will open a file by a path and return its content as a string:
 
 ```js
 db.files.get('users', function(file_content)
