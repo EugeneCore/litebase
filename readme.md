@@ -49,7 +49,7 @@ let db = require('./litebase');
 
 ### Get
 
-.get method will find one document in a specific collection by a query. It will return a document (or undefined result) and a collection:
+.get method will find one document in a specific collection by a query. It will return the first found document (or undefined result) and a collection:
 
 ```js
 db.get('users', {login: 'newton'}, function(found_document, collection)
@@ -58,7 +58,7 @@ db.get('users', {login: 'newton'}, function(found_document, collection)
 });
 ```
 
-.gets method will find all documents in a specific collection by a query. It will return an array of documents and a collection:
+.gets method will find all documents in a specific collection by a query. It will return an array of all found documents and a collection:
 
 ```js
 db.gets('users', {banned: true}, function(found_documents, collection)
