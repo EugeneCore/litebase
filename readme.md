@@ -113,7 +113,7 @@ db.save('users', user, function(created_document, updated_collection)
 });
 ```
 
-.save method will update an existing document if _id provided:
+.save method will update an existing document if its _id provided:
 
 ```js
 db.get('users', {login: 'newton'}, function(found_document, collection)
