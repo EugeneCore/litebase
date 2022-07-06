@@ -1,15 +1,14 @@
 # Litebase
 
 A simple document oriented database for Node.js.
-It uses a standart fs module to interact with files.
 
 ## Structure
 
-Litebase works with collections of documents.
-At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
-All collections will be stored inside the storage folder.
-Each collection will be stored in one separate file and contain an array of documents.
-Every document will have an _id, unique within the one collection.
+1. Litebase uses a standart fs module to interact with files.
+2. The database works with collections of documents.
+3. At the moment of the first document saving, a storage folder will be created next to Litebase index.js.
+4. All collections will be stored inside the storage folder in one separate file and contain an array of documents.
+5. Every document will have an _id, unique within the one collection.
 
 For example, a possible collection "users" would be stored here:
 
@@ -38,7 +37,7 @@ And would contain:
 ]
 ```
 
-Litebase doesn't have indexation system and collection size control, so it's not scalable in the current state.
+Litebase doesn't have an index system and size control, so it's not scalable in the current state.
 
 ## How to use
 
